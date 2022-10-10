@@ -39,8 +39,6 @@ const updateGoals = asyncHandler(async (req, res) => {
     throw new Error('Goal not found')
   }
 
-
-
   if (!req.user) {
     res.status(401)
     throw new Error('User not found')
@@ -81,7 +79,6 @@ const deleteGoals = asyncHandler(async (req, res) => {
   }
 
   await goal.remove()
-
 
   res.status(200).json({ id: req.params.id })
 })

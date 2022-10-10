@@ -11,22 +11,17 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// CORS
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader(
-//     'Access-Control-Allow-Headers',
-//     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-//   );
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-
-//   next();
-// })
-
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
-// connect to frontend
+app.use(errorHandler)
+
+connectDB()
+
+app.listen(port, () => console.log(`Server running ${port}`))
+
+// connect to frontend when it deploys to Heroku
+
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.join(__dirname, '../frontend/build')));
 
@@ -38,9 +33,3 @@ app.use('/api/users', require('./routes/userRoutes'))
 // } else {
 //   app.get('/', (req, res) => res.send('Please set to production'));
 // }
-
-app.use(errorHandler)
-
-connectDB()
-
-app.listen(port, () => console.log(`Server running ${port}`))
