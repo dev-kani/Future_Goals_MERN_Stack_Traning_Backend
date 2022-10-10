@@ -1,0 +1,23 @@
+{
+  "name": "mern-stack-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Kanishka",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
